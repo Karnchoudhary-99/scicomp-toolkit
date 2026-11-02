@@ -74,7 +74,7 @@ end
     @test correlation_of(x, -x) ≈ -1
     r = linear_regression([0.0, 1, 2], [1.0, 3, 5])
     @test r.slope ≈ 2 && r.intercept ≈ 1 && r.r_squared ≈ 1
-    @test zscores([0.0, 2.0]) ≈ [-1.0, 1.0]
+    @test zscores([0.0, 2.0]) ≈ [-1 / sqrt(2), 1 / sqrt(2)]
 end
 
 @testset "distributions" begin
