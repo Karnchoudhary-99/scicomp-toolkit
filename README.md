@@ -51,7 +51,7 @@ and this package takes no external dependencies.
 - [x] Linear algebra (solvers, decompositions)
 - [x] Statistics and distributions
 - [x] Numerical methods (integration, root finding, ODEs)
-- [ ] Self-review checklist, then public
+- [x] Self-review checklist, then public
 
 ## License
 
