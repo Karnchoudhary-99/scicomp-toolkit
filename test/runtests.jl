@@ -105,11 +105,14 @@ end
 
 @testset "roots" begin
     r = bisection(x -> x^2 - 2, 1.0, 2.0)
-    @test r.converged && r.root ≈ sqrt(2) atol = 1e-9
+    @test r.converged
+    @test r.root ≈ sqrt(2) atol = 1e-9
     r = newton_root(x -> x^2 - 2, x -> 2x, 1.0)
-    @test r.converged && r.root ≈ sqrt(2) atol = 1e-9
+    @test r.converged
+    @test r.root ≈ sqrt(2) atol = 1e-9
     r = secant_root(x -> x^2 - 2, 1.0, 2.0)
-    @test r.converged && r.root ≈ sqrt(2) atol = 1e-9
+    @test r.converged
+    @test r.root ≈ sqrt(2) atol = 1e-9
     @test_throws ArgumentError bisection(x -> x^2 + 1, -1.0, 1.0)
 end
 
@@ -128,9 +131,13 @@ end
 
 @testset "optimization" begin
     r = gradient_descent(x -> (x - 3)^2, x -> 2 * (x - 3), 0.0; lr = 0.1)
-    @test r.converged && r.x ≈ 3 atol = 1e-4
+    @test r.converged
+    @test r.x ≈ 3 atol = 1e-4
     r = gradient_descent(v -> sum((v .- [1.0, 2.0]) .^ 2), v -> 2 .* (v .- [1.0, 2.0]), [0.0, 0.0]; lr = 0.1)
-    @test r.converged && r.x ≈ [1.0, 2.0] atol = 1e-4
+    @test r.converged
+    @test r.x ≈ [1.0, 2.0] atol = 1e-4
     r = newton_minimize(x -> (x - 2)^2 + 1, x -> 2 * (x - 2), x -> 2.0, 0.0)
-    @test r.converged && r.x ≈ 2 atol = 1e-9 && r.fmin ≈ 1
+    @test r.converged
+    @test r.x ≈ 2 atol = 1e-9
+    @test r.fmin ≈ 1
 end
