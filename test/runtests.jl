@@ -1,6 +1,6 @@
 using Test
 using SciCompToolkit
-using LinearAlgebra: I
+using LinearAlgebra: I, SingularException
 
 @testset "vectors" begin
     @test dot_product([1, 2, 3], [4, 5, 6]) == 32
